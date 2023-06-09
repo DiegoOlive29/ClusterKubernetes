@@ -1,7 +1,7 @@
 import { AppDataSource } from "../data-source";
 import { User } from "../entities/user.entities";
-import { IuserRequest,IuserUpdateRequest } from "../interfaces/user.interfaces";
-import {hash} from 'bcrypt'
+import { IuserRequest,IuserUpdateRequest } from "../interfaces/users.interfaces";
+import { hash } from 'bcryptjs'
 import { AppError } from "../errors/appError";
 const updateUserService = async ({date,name,email,phone,password}:IuserUpdateRequest, id:string):Promise<User>=>{
 
@@ -21,8 +21,6 @@ const updateUserService = async ({date,name,email,phone,password}:IuserUpdateReq
             name:    name      ? name: findUser.name,
             email:   email     ? email: findUser.email,
             password:password  ? await hash(password,10): findUser.password,
-            date:    date      ? date: findUser.date,
-            phone:   phone     ? phone: findUser.phone
         }
     )
     const user = await userRepository.findOneBy({

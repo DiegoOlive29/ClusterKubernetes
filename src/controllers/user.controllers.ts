@@ -29,4 +29,4 @@ const listUserControler = async (req:Request, res: Response)=>{
   return res.json(listUser)
 }
 
-export { createUserController, updateUserController, deleteUserControler };
+export { createUserController, updateUserController, deleteUserControler,listUserControler };

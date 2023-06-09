@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
+import { Any } from "typeorm";
 
 const tokenAuthMiddleware = async (
   req: Request,
@@ -25,6 +26,7 @@ const tokenAuthMiddleware = async (
     }
     req.user = {
       id: decoded.sub,
+      isAdm: decoded.isAdm
     };
 
     return next();

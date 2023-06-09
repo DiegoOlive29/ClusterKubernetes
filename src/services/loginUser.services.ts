@@ -1,7 +1,8 @@
 import { AppDataSource } from "../data-source";
 import { User } from "../entities/user.entities";
 import { IloginRequest } from "../interfaces/login.interfaces";
-import {compare} from 'bcrypt'
+import {compare} from 'bcryptjs'
+
 import jwt from 'jsonwebtoken'
 import 'dotenv/config'
 import { decode } from "punycode";

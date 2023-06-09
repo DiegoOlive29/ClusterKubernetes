@@ -15,6 +15,9 @@ class User {
   @Column({ default: true })
   isActive: boolean;
 
+  @Column({default: false})
+  isAdm: boolean;
+
   @Column()
   @Exclude()
   password: string;
