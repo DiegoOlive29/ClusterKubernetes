@@ -9,4 +9,3 @@ userRouters.patch('/:id',updateUserController)
 userRouters.delete('/:id', deleteUserControler)
 
 export default userRouters
-
